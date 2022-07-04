@@ -42,7 +42,14 @@ resource "aws_route_table" "mtc_public_rt" {
 
 //route
 resource "aws_route" "default_route" {
-  route_table_id = aws_route_table.mtc_public_rt.id
+  route_table_id         = aws_route_table.mtc_public_rt.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id = aws_internet_gateway.mtc_internet_gateway.id
+  gateway_id             = aws_internet_gateway.mtc_internet_gateway.id
+}
+
+
+//association subnet e root table
+resource "aws_route_table_association" "mtc_public_assoc" {
+  subnet_id      = aws_subnet.mtc_public_subnet.id
+  route_table_id = aws_route_table.mtc_public_rt.id
 }

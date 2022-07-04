@@ -12,4 +12,5 @@ On console
 3) Create a VPC to launch AWS in a defined virtual network - "main.tf" file
 
 ***terraform plan***
+
 ***terraform apply***
